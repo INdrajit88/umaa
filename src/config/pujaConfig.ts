@@ -1,0 +1,180 @@
+import { PujaConfig } from "../types/player";
+
+export const config: PujaConfig = {
+  // Background video path (relative to /public or URL)
+  backgroundVideo: "/background-video.mp4",
+
+  // Target countdown date (Durga Puja / Maha Sasthi 2026: October 16, 2026)
+  countdownDate: "2026-10-16T00:00:00",
+
+  // YouTube Playlist ID provided by user
+  youtubePlaylistId: "PLKk0uTQiItZc",
+
+  // Bengali Titles & Subtitles
+  title: "মা আসছেন",
+  subtitle: "ঢাকের তালে, কাশফুলের হাওয়ায়",
+
+  // Share text and domain
+  shareText: "umaa (উমা) ❤️ ঢাকের তালে Puja playlist শুনতে এসো।",
+  shareUrl: "https://umaa.tech",
+
+  // Ambient floating golden particle / Kashphul breeze effect
+  enableAmbientParticles: true,
+
+  // All 17 Curated Tracks from the user's Durga Puja 2026 Playlist
+  defaultTracks: [
+    {
+      id: "track-1",
+      title: "Dugga Maa Asche (দুগ্গা মা আসছে)",
+      artist: "Kiran Mazumder, Soumya Mukherjee",
+      youtubeId: "sf6usUybi3k",
+      duration: "04:09",
+      artworkUrl: "https://i.ytimg.com/vi/sf6usUybi3k/hqdefault.jpg",
+      description: "Pujo celebration anthem",
+    },
+    {
+      id: "track-2",
+      title: "Ashtamite Tomar Paray (অষ্টমীতে তোমার পাড়ায়)",
+      artist: "Soumya, Arunima, Chirkut, Jyoti",
+      youtubeId: "yD0dpeS1eak",
+      duration: "04:14",
+      artworkUrl: "https://i.ytimg.com/vi/yD0dpeS1eak/hqdefault.jpg",
+      description: "Festive Ashtami love & friendship",
+    },
+    {
+      id: "track-3",
+      title: "Aamaar Dugga (আমার দুগ্গা)",
+      artist: "Monali Thakur",
+      youtubeId: "4h5DXcN6cd4",
+      duration: "03:20",
+      artworkUrl: "https://i.ytimg.com/vi/4h5DXcN6cd4/hqdefault.jpg",
+      description: "Soulful melodious Agomoni pujo song",
+    },
+    {
+      id: "track-4",
+      title: "Bolo Dugga Elo (বলো দুগ্গা এলো)",
+      artist: "Sunidhi Chauhan, Kaushik-Guddu",
+      youtubeId: "XyatKcoBrPw",
+      duration: "03:25",
+      artworkUrl: "https://i.ytimg.com/vi/XyatKcoBrPw/hqdefault.jpg",
+      description: "Energetic Puja beat celebration",
+    },
+    {
+      id: "track-5",
+      title: "Dugga Elo (দুগ্গা এলো)",
+      artist: "Monali Thakur, Guddu",
+      youtubeId: "xlElO06nQy8",
+      duration: "02:31",
+      artworkUrl: "https://i.ytimg.com/vi/xlElO06nQy8/hqdefault.jpg",
+      description: "Joyous homecoming of Maa Durga",
+    },
+    {
+      id: "track-6",
+      title: "Dugga Ma (দুগ্গা মা)",
+      artist: "Arijit Singh, Prashmita Paul",
+      youtubeId: "sPuZ0Q3KDWo",
+      duration: "02:53",
+      artworkUrl: "https://i.ytimg.com/vi/sPuZ0Q3KDWo/hqdefault.jpg",
+      description: "High-energy Durga Puja dance anthem",
+    },
+    {
+      id: "track-7",
+      title: "Shubho Shubho (শুভ শুভ)",
+      artist: "Altamash Faridi, Amit Trivedi",
+      youtubeId: "4ZWQYdzS_WY",
+      duration: "02:56",
+      artworkUrl: "https://i.ytimg.com/vi/4ZWQYdzS_WY/hqdefault.jpg",
+      description: "Festive celebration and blessings",
+    },
+    {
+      id: "track-8",
+      title: "Ebar Jeno Onno Rokom Pujo (এবার যেন অন্য রকম পুজো)",
+      artist: "Nakash Aziz, Antara Mitra",
+      youtubeId: "E2zfQEo7Q_M",
+      duration: "03:44",
+      artworkUrl: "https://i.ytimg.com/vi/E2zfQEo7Q_M/hqdefault.jpg",
+      description: "Vibrant Puja romantic celebration",
+    },
+    {
+      id: "track-9",
+      title: "Dhaker Taley (ঢাকের তালে কাঁসর বাজে)",
+      artist: "Abhijeet Bhattacharya, Parinita",
+      youtubeId: "hbXuXt7gkFY",
+      duration: "04:23",
+      artworkUrl: "https://i.ytimg.com/vi/hbXuXt7gkFY/hqdefault.jpg",
+      description: "Iconic Dhak and Kansor rhythm",
+    },
+    {
+      id: "track-10",
+      title: "Dhak Baja Kashor Baja (ঢাক বাজা কাঁসর বাজা)",
+      artist: "Shreya Ghoshal, Jeet Gannguli",
+      youtubeId: "id5_3dKvEBg",
+      duration: "04:23",
+      artworkUrl: "https://i.ytimg.com/vi/id5_3dKvEBg/hqdefault.jpg",
+      description: "Classic Shreya Ghoshal festive song",
+    },
+    {
+      id: "track-11",
+      title: "Elo Je Maa (এলো যে মা)",
+      artist: "Abhijeet Bhattacharya, Shreya Ghoshal",
+      youtubeId: "2U416kTo0as",
+      duration: "04:51",
+      artworkUrl: "https://i.ytimg.com/vi/2U416kTo0as/hqdefault.jpg",
+      description: "Soulful Agomoni duet",
+    },
+    {
+      id: "track-12",
+      title: "Khawne Gorachand (লহ গৌরাঙ্গের নাম রে)",
+      artist: "Arijit Singh",
+      youtubeId: "guv_YlxJIHo",
+      duration: "04:16",
+      artworkUrl: "https://i.ytimg.com/vi/guv_YlxJIHo/hqdefault.jpg",
+      description: "Devotional spiritual masterpiece",
+    },
+    {
+      id: "track-13",
+      title: "Ailo Uma Barite (আইলো উমা বাড়িতে)",
+      artist: "Monami Ghosh",
+      youtubeId: "4zyCkmAS1Oo",
+      duration: "04:21",
+      artworkUrl: "https://i.ytimg.com/vi/4zyCkmAS1Oo/hqdefault.jpg",
+      description: "Festive Homecoming folk celebration",
+    },
+    {
+      id: "track-14",
+      title: "Melar Gaan (মেলার গান)",
+      artist: "Anirban, Subhadeep, Debraj, Riddhi",
+      youtubeId: "hmHDqaePFdU",
+      duration: "06:40",
+      artworkUrl: "https://i.ytimg.com/vi/hmHDqaePFdU/hqdefault.jpg",
+      description: "Puja Mela nostalgia and energy",
+    },
+    {
+      id: "track-15",
+      title: "Ekbar Nacho Maa (একবার নাচো মা)",
+      artist: "Dohar, Kalikaprasad",
+      youtubeId: "EZbQ-uaDbw4",
+      duration: "05:40",
+      artworkUrl: "https://i.ytimg.com/vi/EZbQ-uaDbw4/hqdefault.jpg",
+      description: "Traditional folk Shyama & Durga sangeet",
+    },
+    {
+      id: "track-16",
+      title: "Agomonir Gaan (আগমনীর গান)",
+      artist: "Anupam Roy",
+      youtubeId: "MsqpjM09MrY",
+      duration: "06:04",
+      artworkUrl: "https://i.ytimg.com/vi/MsqpjM09MrY/hqdefault.jpg",
+      description: "Modern Agomoni awakening ballad",
+    },
+    {
+      id: "track-17",
+      title: "Gulbahar (গুলবাহার)",
+      artist: "Shuvendu Das Shuvo",
+      youtubeId: "Ib_L3vuUX5k",
+      duration: "04:24",
+      artworkUrl: "https://i.ytimg.com/vi/Ib_L3vuUX5k/hqdefault.jpg",
+      description: "Soulful Bengali festive melody",
+    },
+  ],
+};
