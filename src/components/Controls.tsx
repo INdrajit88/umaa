@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import {
   Play,
   Pause,
@@ -38,6 +38,42 @@ export const Controls: React.FC<ControlsProps> = ({
   onToggleShuffle,
   onToggleRepeat,
 }) => {
+  const volumeTrackRef = useRef<HTMLDivElement>(null);
+  const isDraggingVolumeRef = useRef(false);
+
+  // Touch-optimized Volume Drag Handlers
+  const handleVolumePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const track = volumeTrackRef.current;
+    if (!track) return;
+    track.setPointerCapture(e.pointerId);
+    isDraggingVolumeRef.current = true;
+    updateVolumeFromEvent(e.clientX);
+  };
+
+  const handleVolumePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingVolumeRef.current) return;
+    updateVolumeFromEvent(e.clientX);
+  };
+
+  const handleVolumePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingVolumeRef.current) return;
+    isDraggingVolumeRef.current = false;
+    const track = volumeTrackRef.current;
+    if (track) {
+      track.releasePointerCapture(e.pointerId);
+    }
+  };
+
+  const updateVolumeFromEvent = (clientX: number) => {
+    const track = volumeTrackRef.current;
+    if (!track) return;
+    const rect = track.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    onVolumeChange(Math.round(ratio * 100));
+  };
+
+  const currentVol = playerState.isMuted ? 0 : playerState.volume;
+
   return (
     <div className="w-full flex flex-col items-center select-none">
       {/* Pixel Media Notification Squiggly Green Wave Scrubber */}
@@ -110,27 +146,42 @@ export const Controls: React.FC<ControlsProps> = ({
         </button>
       </div>
 
-      {/* Volume Slider */}
-      <div className="flex items-center gap-2 mt-1.5 sm:mt-2 px-3 py-1 sm:px-3.5 sm:py-1 rounded-full ios-glass-pill">
+      {/* Touch-Optimized Mobile & Desktop Volume Bar */}
+      <div className="flex items-center gap-2.5 mt-1.5 sm:mt-2 px-3.5 py-1.5 rounded-full ios-glass-pill select-none touch-none">
         <button
           onClick={onToggleMute}
           title={playerState.isMuted ? "Unmute" : "Mute"}
-          className="text-gray-200 hover:text-[#34D399] transition-colors p-0.5"
+          className="text-gray-200 hover:text-[#34D399] active:scale-90 transition-transform p-0.5"
         >
           {playerState.isMuted || playerState.volume === 0 ? (
-            <VolumeX className="w-3.5 h-3.5 text-red-400" />
+            <VolumeX className="w-4 h-4 text-red-400" />
           ) : (
-            <Volume2 className="w-3.5 h-3.5" />
+            <Volume2 className="w-4 h-4 text-gray-200" />
           )}
         </button>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={playerState.isMuted ? 0 : playerState.volume}
-          onChange={(e) => onVolumeChange(Number(e.target.value))}
-          className="w-16 sm:w-20 h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#34D399]"
-        />
+
+        {/* Interactive Custom Touch-Drag Volume Track */}
+        <div
+          ref={volumeTrackRef}
+          onPointerDown={handleVolumePointerDown}
+          onPointerMove={handleVolumePointerMove}
+          onPointerUp={handleVolumePointerUp}
+          className="w-20 sm:w-24 h-5 flex items-center cursor-pointer relative touch-none py-1"
+        >
+          {/* Background Track */}
+          <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden relative">
+            {/* Active Volume Fill */}
+            <div
+              className="h-full bg-[#34D399] rounded-full transition-all duration-75"
+              style={{ width: `${currentVol}%` }}
+            />
+          </div>
+          {/* Thumb indicator */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-[#34D399] border border-[#064E3B] rounded-full shadow-md pointer-events-none transition-all duration-75"
+            style={{ left: `calc(${currentVol}% - 6px)` }}
+          />
+        </div>
       </div>
     </div>
   );
