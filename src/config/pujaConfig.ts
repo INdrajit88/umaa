@@ -25,12 +25,12 @@ export const config: PujaConfig = {
   defaultTracks: [
     {
       id: "track-1",
-      title: "Dugga Maa Asche (দুগ্গা মা আসছে)",
-      artist: "Kiran Mazumder, Soumya Mukherjee",
-      youtubeId: "sf6usUybi3k",
-      duration: "04:09",
-      artworkUrl: "https://i.ytimg.com/vi/sf6usUybi3k/hqdefault.jpg",
-      description: "Pujo celebration anthem",
+      title: "Dugga Elo (দুগ্গা এলো)",
+      artist: "Monali Thakur, Guddu",
+      youtubeId: "xlElO06nQy8",
+      duration: "02:31",
+      artworkUrl: "https://i.ytimg.com/vi/xlElO06nQy8/hqdefault.jpg",
+      description: "Joyous homecoming of Maa Durga",
     },
     {
       id: "track-2",
@@ -61,14 +61,13 @@ export const config: PujaConfig = {
     },
     {
       id: "track-5",
-      title: "Dugga Elo (দুগ্গা এলো)",
-      artist: "Monali Thakur, Guddu",
-      youtubeId: "xlElO06nQy8",
-      duration: "02:31",
-      artworkUrl: "https://i.ytimg.com/vi/xlElO06nQy8/hqdefault.jpg",
-      description: "Joyous homecoming of Maa Durga",
-    },
-    {
+      title: "Dugga Maa Asche (দুগ্গা মা আসছে)",
+      artist: "Kiran Mazumder, Soumya Mukherjee",
+      youtubeId: "sf6usUybi3k",
+      duration: "04:09",
+      artworkUrl: "https://i.ytimg.com/vi/sf6usUybi3k/hqdefault.jpg",
+      description: "Pujo celebration anthem",
+    }, {
       id: "track-6",
       title: "Dugga Ma (দুগ্গা মা)",
       artist: "Arijit Singh, Prashmita Paul",
