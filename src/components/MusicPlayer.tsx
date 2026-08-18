@@ -196,7 +196,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({
                     {currentTrack.artworkUrl ? (
                       <img
                         src={currentTrack.artworkUrl}
-                        alt={currentTrack.title}
+                        alt={`${currentTrack.title} - ${currentTrack.artist} | Durga Puja Song`}
                         className={`w-full h-full object-cover ${
                           playerState.isPlaying ? "animate-[spin_10s_linear_infinite]" : ""
                         }`}

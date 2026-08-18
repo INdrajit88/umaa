@@ -70,6 +70,25 @@ export default function Home() {
         isVisible={showIntro}
         onEnter={handleEnterExperience}
       />
+
+      {/* 7. Hidden Crawlable Semantic SEO Content for Search Engine Indexing */}
+      <section className="sr-only" aria-label="Durga Puja 2026 Celebration and Playlist Details">
+        <h2>umaa — শারদোৎসব ২০২৬ আগমনী ও দুর্গাপূজা গান (Durga Puja 2026 Festive Music)</h2>
+        <p>
+          ঢাকের তালে, কাশফুলের হাওয়ায়… মা আসছেন। umaa.tech offers a live countdown to Durga Puja 2026 (Maha Sasthi: October 16, 2026) alongside an immersive curated collection of Bengali festive tracks.
+        </p>
+        <h3>Curated Tracklist ({config.defaultTracks.length} Songs):</h3>
+        <ul>
+          {config.defaultTracks.map((t, idx) => (
+            <li key={t.id}>
+              {idx + 1}. {t.title} — {t.artist} ({t.duration}): {t.description}
+            </li>
+          ))}
+        </ul>
+        <p>
+          Celebrate Durga Puja 2026 across Kolkata, West Bengal, and worldwide with authentic Dhak beats, Agomoni sangeet, and festive joy on umaa.tech.
+        </p>
+      </section>
     </main>
   );
 }

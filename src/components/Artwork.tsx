@@ -27,7 +27,8 @@ export const Artwork: React.FC<ArtworkProps> = ({ track, isPlaying }) => {
             {track.artworkUrl ? (
               <img
                 src={track.artworkUrl}
-                alt={track.title}
+                alt={`${track.title} by ${track.artist} - Durga Puja Festive Song`}
+                loading="eager"
                 className="w-full h-full object-cover object-center"
               />
             ) : (
